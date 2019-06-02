@@ -1,0 +1,1562 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Jupyter Notebook Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <meta name="robots" content="noindex,nofollow">
+  
+
+  <!--NEW RELIC Start Perf Measurement-->
+  
+  <!--NREND-->
+
+  <!-- Le styles -->
+  <link href="/static/build/styles.css?v=55ba354138253381d2c0ada9821cd4da" rel="stylesheet">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- Le fav and touch icons -->
+  <link rel="shortcut icon" href="/static/ico/ipynb_icon_16x16.png">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="/static/ico/apple-touch-icon-144-precomposed.png?v=5a3c9ede93e2a8b8ea9e3f8f3da1a905">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="/static/ico/apple-touch-icon-114-precomposed.png?v=45d86fc8f24dc00638035e1dd7a6d898">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="/static/ico/apple-touch-icon-72-precomposed.png?v=540b5eb0f3cfd25f1439d1c9bd30e15f">
+  <link rel="apple-touch-icon-precomposed"
+        href="/static/ico/apple-touch-icon-57-precomposed.png?v=225f0590e187e1458625654f10a28f56">
+  
+  
+
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Notebook on nbviewer">
+  <meta name="twitter:description" content="Check out this Jupyter notebook!">
+
+  
+  <meta name="twitter:domain" content="nbviewer.jupyter.org">
+  <meta name="twitter:image:src" content="http://ipython.org/ipython-doc/dev/_images/ipynb_icon_128x128.png">
+
+  
+    <link href="/static/build/notebook.css?v=aae8f92f7e80fc468ae446b9d852fe90" rel="stylesheet">
+  
+
+  
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      init_mathjax = function() {
+        if (window.MathJax) {
+          // MathJax loaded
+          MathJax.Hub.Config({
+            TeX: {
+              equationNumbers: {
+                autoNumber: "AMS",
+                useLabelIds: true
+              }
+            },
+            tex2jax: {
+              inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+              displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+              processEscapes: true,
+              processEnvironments: true
+            },
+            displayAlign: 'center',
+            "HTML-CSS": {
+              styles: {'.MathJax_Display': {"margin": 0}},
+              linebreaks: { automatic: true }
+            }
+          });
+          MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+      }
+      init_mathjax();
+    </script>
+  
+
+  
+    <script>
+      (function() {
+        function addWidgetsRenderer() {
+          var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+          var scriptElement = document.createElement('script');
+          var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@0.15/dist/embed-amd.js';
+          var widgetState;
+
+          try {
+            widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+            if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+              widgetRendererSrc = 'https://unpkg.com/jupyter-js-widgets@2.1/dist/embed.js';
+            }
+          } catch(e) {}
+
+          scriptElement.src = widgetRendererSrc;
+          document.body.appendChild(scriptElement);
+        }
+
+        document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+      }());
+    </script>
+  
+
+</head>
+
+<body class="nbviewer">
+
+  <!-- These are loaded at the top of the body so they are available to
+       notebook cells when they are loaded below. -->
+  <script src="/static/components/jquery/dist/jquery.min.js?v=a09e13ee94d51c524b7e2a728c7d4039"></script>
+  <script src="/static/components/requirejs/require.js?v=6da8be361b9ee26c5e721e76c6d4afce"></script>
+  <script src="/static/components/moment/min/moment.min.js?v=89f87298ad94aa1e6b92f42eb66da043"></script>
+<!-- Navbar
+================================================== -->
+  <nav id="menubar" class="navbar navbar-default navbar-fixed-top" data-spy="affix">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand" href="/">
+          <img src="/static/img/nav_logo.svg?v=479cefe8d932fb14a67b93911b97d70f" width="159"/>
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="active" href="http://jupyter.org">JUPYTER</a>
+          </li>
+          <li>
+    <a href="/faq" title="FAQ" >
+      
+        <span>FAQ</span>
+      
+    </a>
+  </li>
+
+          
+  
+    
+  
+    
+      
+        <li>
+    <a href="/format/script/github/Yorko/mlcourse_open/blob/master/jupyter_russian/project_alice/week1_prepare_dataset.ipynb?flush_cache=true" title="View as Code" >
+      <span class="fa fa-code fa-2x menu-icon"></span>
+      <span class="menu-text">View as Code</span>
+    </a>
+  </li>
+      
+    
+  
+
+  
+    <li>
+    <a href="#" title="Python 3 Kernel" >
+      <span class="fa fa-server fa-2x menu-icon"></span>
+      <span class="menu-text">Python 3 Kernel</span>
+    </a>
+  </li>
+  
+
+  
+    <li>
+    <a href="https://github.com/Yorko/mlcourse_open/blob/master/jupyter_russian/project_alice/week1_prepare_dataset.ipynb" title="View on GitHub" >
+      <span class="fa fa-github fa-2x menu-icon"></span>
+      <span class="menu-text">View on GitHub</span>
+    </a>
+  </li>
+  
+
+  
+    <li>
+    <a href="https://mybinder.org/v2/gh/Yorko/mlcourse_open/master?filepath=jupyter_russian/project_alice/week1_prepare_dataset.ipynb" title="Execute on Binder" >
+      <span class="fa fa-icon-binder fa-2x menu-icon"></span>
+      <span class="menu-text">Execute on Binder</span>
+    </a>
+  </li>
+  
+
+  <li>
+    <a href="https://raw.githubusercontent.com/Yorko/mlcourse_open/master/jupyter_russian/project_alice/week1_prepare_dataset.ipynb" title="Download Notebook" download>
+      <span class="fa fa-download fa-2x menu-icon"></span>
+      <span class="menu-text">Download Notebook</span>
+    </a>
+  </li>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+      
+      
+    </div>
+  </nav>
+
+  <div class="container container-main">
+    
+  
+  <ol class="breadcrumb">
+    
+      <li>
+        <a href="/github/Yorko/mlcourse_open/tree/master">mlcourse_open</a>
+      </li>
+    
+      <li>
+        <a href="/github/Yorko/mlcourse_open/tree/master/jupyter_russian">jupyter_russian</a>
+      </li>
+    
+      <li>
+        <a href="/github/Yorko/mlcourse_open/tree/master/jupyter_russian/project_alice">project_alice</a>
+      </li>
+    
+  </ol>
+  
+  <div id="notebook">
+    <div id="notebook-container">
+      
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><center>
+<img src="https://habrastorage.org/web/677/8e1/337/6778e1337c3d4b159d7e99df94227cb2.jpg"/></p>
+<h2 id="&#1057;&#1087;&#1077;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-&quot;&#1052;&#1072;&#1096;&#1080;&#1085;&#1085;&#1086;&#1077;-&#1086;&#1073;&#1091;&#1095;&#1077;&#1085;&#1080;&#1077;-&#1080;-&#1072;&#1085;&#1072;&#1083;&#1080;&#1079;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1093;&quot;">&#1057;&#1087;&#1077;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103; "&#1052;&#1072;&#1096;&#1080;&#1085;&#1085;&#1086;&#1077; &#1086;&#1073;&#1091;&#1095;&#1077;&#1085;&#1080;&#1077; &#1080; &#1072;&#1085;&#1072;&#1083;&#1080;&#1079; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;"<a class="anchor-link" href="#&#1057;&#1087;&#1077;&#1094;&#1080;&#1072;&#1083;&#1080;&#1079;&#1072;&#1094;&#1080;&#1103;-&quot;&#1052;&#1072;&#1096;&#1080;&#1085;&#1085;&#1086;&#1077;-&#1086;&#1073;&#1091;&#1095;&#1077;&#1085;&#1080;&#1077;-&#1080;-&#1072;&#1085;&#1072;&#1083;&#1080;&#1079;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1093;&quot;">&#182;</a></h2><p><center>Автор материала: программист-исследователь Mail.Ru Group, старший преподаватель Факультета Компьютерных Наук ВШЭ <a href="https://yorko.github.io/">Юрий Кашницкий</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1><center> Capstone проект №1 <br> Идентификация пользователей по посещенным веб-страницам</h1>
+<p><img src='http://i.istockimg.com/file_thumbview_approve/21546327/5/stock-illustration-21546327-identification-de-l-utilisateur.jpg'></p>
+<p>В этом проекте мы будем решать задачу идентификации пользователя по его поведению в сети Интернет. Это сложная и интересная задача на стыке анализа данных и поведенческой психологии. В качестве примера, компания Яндекс решает задачу идентификации взломщика почтового ящика по его поведению. В двух словах, взломщик будет себя вести не так, как владелец ящика: он может не удалять сообщения сразу по прочтении, как это делал хозяин, он будет по-другому ставить флажки сообщениям и даже по-своему двигать мышкой. Тогда такого злоумышленника можно идентифицировать и "выкинуть" из почтового ящика, предложив хозяину войти по SMS-коду. Этот пилотный проект описан в <a href="https://habrahabr.ru/company/yandex/blog/230583/">статье</a> на Хабрахабре. Похожие вещи делаются, например, в Google Analytics и описываются в научных статьях, найти можно многое по фразам "Traversal Pattern Mining" и "Sequential Pattern Mining".</p>
+<p>Мы будем решать похожую задачу: по последовательности из нескольких веб-сайтов, посещенных подряд один и тем же человеком, мы будем идентифицировать этого человека. Идея такая: пользователи Интернета по-разному переходят по ссылкам, и это может помогать их идентифицировать (кто-то сначала в почту, потом про футбол почитать, затем новости, контакт, потом наконец – работать, кто-то – сразу работать).</p>
+<p>Будем использовать данные из <a href="http://ceur-ws.org/Vol-1703/paper12.pdf">статьи</a> "A Tool for Classification of Sequential Data". И хотя мы не можем рекомендовать эту статью (описанные методы делеки от state-of-the-art, лучше обращаться к <a href="http://www.charuaggarwal.net/freqbook.pdf">книге</a> "Frequent Pattern Mining" и последним статьям с ICDM), но данные там собраны аккуратно и представляют интерес.</p>
+<p>Имеются данные с прокси-серверов Университета Блеза Паскаля, они имеют очень простой вид. Для каждого пользователя заведен csv-файл с названием user****.csv (где вместо звездочек – 4 цифры, соответствующие ID пользователя), а в нем посещения сайтов записаны в следующем формате: <br></p>
+<center>*timestamp, посещенный веб-сайт*</center><p>Скачать исходные данные можно по ссылке в статье, там же описание.
+Для этого задания хватит данных не по всем 3000 пользователям, а по 10 и 150. <a href="https://drive.google.com/file/d/1AU3M_mFPofbfhFQa_Bktozq_vFREkWJA/view?usp=sharing">Ссылка</a> на архив <em>capstone_user_identification</em> (~7 Mb, в развернутом виде ~ 60 Mb).</p>
+<p>В финальном проекте уже придется столкнуться с тем, что не все операции можно выполнить за разумное время (скажем, перебрать с кросс-валидацией 100 комбинаций параметров случайного леса на этих данных Вы вряд ли сможете), поэтому мы будем использовать параллельно 2 выборки: по 10 пользователям и по 150. Для 10 пользователей будем писать и отлаживать код, для 150 – будет рабочая версия.</p>
+<p>Данные устроены следующем образом:</p>
+<ul>
+<li>В каталоге 10users лежат 10 csv-файлов с названием вида "user[USER_ID].csv", где [USER_ID] – ID пользователя;</li>
+<li>Аналогично для каталога 150users – там 150 файлов;</li>
+<li>В каталоге 3users – игрушечный пример из 3 файлов, это для отладки кода предобработки, который Вы далее напишете.</li>
+</ul>
+<p>На 5 неделе будет задание по <a href="https://www.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2">соревнованию</a> Kaggle Inclass, которое организовано специально под Capstone проект нашей специализации. Соревнование уже открыто и, конечно, желающие могут начать уже сейчас.</p>
+<h1><center>Неделя 1. Подготовка данных к анализу и построению моделей</h1>
+<p>Первая часть проекта посвящена подготовке данных для дальнейшего описательного анализа и построения прогнозных моделей. Надо будет написать код для предобработки данных (исходно посещенные веб-сайты указаны для каждого пользователя в отдельном файле) и формирования единой обучающей выборки. Также в этой части мы познакомимся с разреженным форматом данных (матрицы <code>Scipy.sparse</code>), который хорошо подходит для данной задачи.</p>
+<p><strong>План 1 недели:</strong></p>
+<ul>
+<li>Часть 1. Подготовка обучающей выборки</li>
+<li>Часть 2. Работа с разреженным форматом данных</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;<a class="anchor-link" href="#&#1047;&#1072;&#1076;&#1072;&#1085;&#1080;&#1077;">&#182;</a></h3><ol>
+<li>Заполните код в этой тетрадке </li>
+<li>Если вы проходите специализацию Яндеса и МФТИ, пошлите файл с ответами в соответствующем Programming Assignment. <br> Если вы проходите курс ODS, выберите ответы в <a href="https://docs.google.com/forms/d/e/1FAIpQLSedmwHb4cOI32zKJmEP7RvgEjNoz5GbeYRc83qFXVH82KFgGA/viewform">веб-форме</a>. </li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>В этой части проекта Вам могут быть полезны видеозаписи следующих лекций 1 и 2 недели курса "Математика и Python для анализа данных":</strong></p>
+<ul>
+<li><a href="https://www.coursera.org/learn/mathematics-and-python/lecture/Kd7dL/tsikly-funktsii-ghienieratory-list-comprehension">Циклы, функции, генераторы, list comprehension</a></li>
+<li><a href="https://www.coursera.org/learn/mathematics-and-python/lecture/8Xvwp/chtieniie-dannykh-iz-failov">Чтение данных из файлов</a></li>
+<li><a href="https://www.coursera.org/learn/mathematics-and-python/lecture/vde7k/zapis-failov-izmienieniie-failov">Запись файлов, изменение файлов</a></li>
+<li><a href="https://www.coursera.org/learn/mathematics-and-python/lecture/rcjAW/pandas-data-frame">Pandas.DataFrame</a></li>
+<li><a href="https://www.coursera.org/learn/mathematics-and-python/lecture/lsXAR/pandas-indieksatsiia-i-sieliektsiia">Pandas. Индексация и селекция</a></li>
+</ul>
+<p><strong>Кроме того, в задании будут использоваться библиотеки Python <a href="https://docs.python.org/3/library/glob.html"><code>glob</code></a>, <a href="https://docs.python.org/2/library/pickle.html"><code>pickle</code></a> и класс <a href="https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.sparse.csr_matrix.html"><code>csr_matrix</code></a> из <code>Scipy.sparse</code>.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Наконец, для лучшей воспроизводимости результатов приведем список версий основных используемых в проекте библиотек: NumPy, SciPy, Pandas, Matplotlib, Statsmodels и Scikit-learn. Для этого воспользуемся расширением <a href="https://github.com/rasbt/watermark">watermark</a>. Рекомендуется использовать докер-контейнер открытого курса OpenDataScience по машинному обучению, инструкции <a href="https://goo.gl/RrwpNd">тут</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pip install watermark</span>
+<span class="o">%</span><span class="k">load_ext</span> watermark
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">watermark</span> -v -m -p numpy,scipy,pandas,matplotlib,statsmodels,sklearn -g
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>CPython 3.6.4
+IPython 6.2.1
+
+numpy 1.11.3
+scipy 1.0.0
+pandas 0.22.0
+matplotlib 2.1.2
+statsmodels 0.8.0
+sklearn 0.19.1
+
+compiler   : GCC 4.2.1 Compatible Clang 4.0.1 (tags/RELEASE_401/final)
+system     : Darwin
+release    : 17.4.0
+machine    : x86_64
+processor  : i386
+CPU cores  : 8
+interpreter: 64bit
+Git hash   : 6ef9264b7e441ca8218832835b851e5e1c36629c
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+<span class="c1"># отключим всякие предупреждения Anaconda</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">glob</span> <span class="k">import</span> <span class="n">glob</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="c1">#pip install tqdm</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="k">import</span> <span class="n">tqdm_notebook</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="k">import</span> <span class="n">csr_matrix</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Посмотрим на один из файлов с данными о посещенных пользователем (номер 31) веб-страницах.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Поменяйте на свой путь к данным</span>
+<span class="n">PATH_TO_DATA</span> <span class="o">=</span> <span class="s1">&#39;capstone_user_identification&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user31_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> 
+                                       <span class="s1">&#39;10users/user0031.csv&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">user31_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>timestamp</th>
+      <th>site</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2013-11-15 08:12:07</td>
+      <td>fpdownload2.macromedia.com</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2013-11-15 08:12:17</td>
+      <td>laposte.net</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2013-11-15 08:12:17</td>
+      <td>www.laposte.net</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2013-11-15 08:12:17</td>
+      <td>www.google.com</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2013-11-15 08:12:18</td>
+      <td>www.laposte.net</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Поставим задачу классификации: идентифицировать пользователя по сессии из 10 подряд посещенных сайтов. Объектом в этой задаче будет сессия из 10 сайтов, последовательно посещенных одним и тем же пользователем, признаками – индексы этих 10 сайтов (чуть позже здесь появится "мешок" сайтов, подход Bag of Words). Целевым классом будет id пользователя.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1076;&#1083;&#1103;-&#1080;&#1083;&#1083;&#1102;&#1089;&#1090;&#1088;&#1072;&#1094;&#1080;&#1080;"><center>&#1055;&#1088;&#1080;&#1084;&#1077;&#1088; &#1076;&#1083;&#1103; &#1080;&#1083;&#1083;&#1102;&#1089;&#1090;&#1088;&#1072;&#1094;&#1080;&#1080;</center><a class="anchor-link" href="#&#1055;&#1088;&#1080;&#1084;&#1077;&#1088;-&#1076;&#1083;&#1103;-&#1080;&#1083;&#1083;&#1102;&#1089;&#1090;&#1088;&#1072;&#1094;&#1080;&#1080;">&#182;</a></h3><p><strong>Пусть пользователя всего 2, длина сессии – 2 сайта.</strong></p>
+<p><center>user0001.csv</center></p>
+<p><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style></p>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">timestamp</th>
+    <th class="tg-031e">site</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">00:00:01</td>
+    <td class="tg-031e">vk.com</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">00:00:11</td>
+    <td class="tg-yw4l">google.com</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">00:00:16</td>
+    <td class="tg-031e">vk.com</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">00:00:20</td>
+    <td class="tg-031e">yandex.ru</td>
+  </tr>
+</table><p><center>user0002.csv</center></p>
+<p><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style></p>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">timestamp</th>
+    <th class="tg-031e">site</th>
+  </tr>
+  <tr>
+    <td class="tg-031e">00:00:02</td>
+    <td class="tg-031e">yandex.ru</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">00:00:14</td>
+    <td class="tg-yw4l">google.com</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">00:00:17</td>
+    <td class="tg-031e">facebook.com</td>
+  </tr>
+  <tr>
+    <td class="tg-031e">00:00:25</td>
+    <td class="tg-031e">yandex.ru</td>
+  </tr>
+</table><p>Идем по 1 файлу, нумеруем сайты подряд: vk.com – 1, google.com – 2 и т.д. Далее по второму файлу.</p>
+<p>Отображение сайтов в их индесы должно получиться таким:</p>
+<p><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style></p>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">site</th>
+    <th class="tg-yw4l">site_id</th>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">vk.com</td>
+    <td class="tg-yw4l">1</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">google.com</td>
+    <td class="tg-yw4l">2</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">yandex.ru</td>
+    <td class="tg-yw4l">3</td>
+  </tr>
+  <tr>
+    <td class="tg-yw4l">facebook.com</td>
+    <td class="tg-yw4l">4</td>
+  </tr>
+</table><p>Тогда обучающая выборка будет такой (целевой признак – user_id):</p>
+<p><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-s6z2{text-align:center}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-hgcj{font-weight:bold;text-align:center}
+.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
+</style></p>
+<table class="tg">
+  <tr>
+    <th class="tg-hgcj">session_id</th>
+    <th class="tg-hgcj">site1</th>
+    <th class="tg-hgcj">site2</th>
+    <th class="tg-amwm">user_id</th>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">1</td>
+    <td class="tg-s6z2">1</td>
+    <td class="tg-s6z2">2</td>
+    <td class="tg-baqh">1</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">2</td>
+    <td class="tg-s6z2">1</td>
+    <td class="tg-s6z2">3</td>
+    <td class="tg-baqh">1</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">3</td>
+    <td class="tg-s6z2">3</td>
+    <td class="tg-s6z2">2</td>
+    <td class="tg-baqh">2</td>
+  </tr>
+  <tr>
+    <td class="tg-s6z2">4</td>
+    <td class="tg-s6z2">4</td>
+    <td class="tg-s6z2">3</td>
+    <td class="tg-baqh">2</td>
+  </tr>
+</table><p>Здесь 1 объект – это сессия из 2 посещенных сайтов 1-ым пользователем (target=1). Это сайты vk.com и google.com (номер 1 и 2). И так далее, всего 4 сессии. Пока сессии у нас не пересекаются по сайтам, то есть посещение каждого отдельного сайта относится только к одной сессии.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1063;&#1072;&#1089;&#1090;&#1100;-1.-&#1055;&#1086;&#1076;&#1075;&#1086;&#1090;&#1086;&#1074;&#1082;&#1072;-&#1086;&#1073;&#1091;&#1095;&#1072;&#1102;&#1097;&#1077;&#1081;-&#1074;&#1099;&#1073;&#1086;&#1088;&#1082;&#1080;">&#1063;&#1072;&#1089;&#1090;&#1100; 1. &#1055;&#1086;&#1076;&#1075;&#1086;&#1090;&#1086;&#1074;&#1082;&#1072; &#1086;&#1073;&#1091;&#1095;&#1072;&#1102;&#1097;&#1077;&#1081; &#1074;&#1099;&#1073;&#1086;&#1088;&#1082;&#1080;<a class="anchor-link" href="#&#1063;&#1072;&#1089;&#1090;&#1100;-1.-&#1055;&#1086;&#1076;&#1075;&#1086;&#1090;&#1086;&#1074;&#1082;&#1072;-&#1086;&#1073;&#1091;&#1095;&#1072;&#1102;&#1097;&#1077;&#1081;-&#1074;&#1099;&#1073;&#1086;&#1088;&#1082;&#1080;">&#182;</a></h2><p>Реализуйте функцию <em>prepare_train_set</em>, которая принимает на вход путь к каталогу с csv-файлами <em>path_to_csv_files</em> и параметр <em>session_length</em> – длину сессии, а возвращает 2 объекта:</p>
+<ul>
+<li>DataFrame, в котором строки соответствуют уникальным сессиям из <em>session_length</em> сайтов, <em>session_length</em> столбцов – индексам этих <em>session_length</em> сайтов и последний столбец – ID пользователя</li>
+<li>частотный словарь сайтов вида {'site_string': [site_id, site_freq]}, например для недавнего игрушечного примера это будет {'vk.com': (1, 2), 'google.com': (2, 2), 'yandex.ru': (3, 3), 'facebook.com': (4, 1)}</li>
+</ul>
+<p>Детали:</p>
+<ul>
+<li>Смотрите чуть ниже пример вывода, что должна возвращать функция</li>
+<li>Используйте <code>glob</code> (или аналоги) для обхода файлов в каталоге. Для определенности, отсортируйте список файлов лексикографически. Удобно использовать <code>tqdm_notebook</code> (или просто <code>tqdm</code> в случае python-скрипта) для отслеживания числа выполненных итераций цикла</li>
+<li>Создайте частотный словарь уникальных сайтов (вида {'site_string': (site_id, site_freq)}) и заполняйте его по ходу чтения файлов. Начните с 1</li>
+<li>Рекомендуется меньшие индексы давать более часто попадающимся сайтам (приницип наименьшего описания)</li>
+<li>Не делайте entity recognition, считайте <em>google.com</em>, <em><a href="http://www.google.com">http://www.google.com</a></em> и <em>www.google.com</em> разными сайтами (подключить entity recognition можно уже в рамках индивидуальной работы над проектом)</li>
+<li>Скорее всего в файле число записей не кратно числу <em>session_length</em>. Тогда последняя сессия будет короче. Остаток заполняйте нулями. То есть если в файле 24 записи и сессии длины 10, то 3 сессия будет состоять из 4 сайтов, и ей мы сопоставим вектор [<em>site1_id</em>, <em>site2_id</em>, <em>site3_id</em>, <em>site4_id</em>, 0, 0, 0, 0, 0, 0, <em>user_id</em>] </li>
+<li>В итоге некоторые сессии могут повторяться – оставьте как есть, не удаляйте дубликаты. Если в двух сессиях все сайты одинаковы, но сессии принадлежат разным пользователям, то тоже оставляйте как есть, это естественная неопределенность в данных</li>
+<li>Не оставляйте в частотном словаре сайт 0 (уже в конце, когда функция возвращает этот словарь)</li>
+<li>150 файлов из <em>capstone_websites_data/150users/</em> у меня обработались за 1.7 секунды, но многое, конечно, зависит от реализации функции и от используемого железа. И вообще, первая реализация скорее всего будет не самой эффективной, дальше можно заняться профилированием (особенно если планируете запускать этот код для 3000 пользователей). Также эффективная реализация этой функции поможет нам на следующей неделе.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">prepare_train_set</span><span class="p">(</span><span class="n">path_to_csv_files</span><span class="p">,</span> <span class="n">session_length</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Примените полученную функцию к игрушечному примеру, убедитесь, что все работает как надо.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat <span class="nv">$PATH_TO_DATA</span>/3users/user0001.csv
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>timestamp,site
+2013-11-15 09:28:17,vk.com
+2013-11-15 09:33:04,oracle.com
+2013-11-15 09:52:48,oracle.com
+2013-11-15 11:37:26,geo.mozilla.org
+2013-11-15 11:40:32,oracle.com
+2013-11-15 11:40:34,google.com
+2013-11-15 11:40:35,accounts.google.com
+2013-11-15 11:40:37,mail.google.com
+2013-11-15 11:40:40,apis.google.com
+2013-11-15 11:41:35,plus.google.com
+2013-11-15 12:40:35,vk.com
+2013-11-15 12:40:37,google.com
+2013-11-15 12:40:40,google.com
+2013-11-15 12:41:35,google.com
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat <span class="nv">$PATH_TO_DATA</span>/3users/user0002.csv
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>timestamp,site
+2013-11-15 09:28:17,vk.com
+2013-11-15 09:33:04,oracle.com
+2013-11-15 09:52:48,football.kulichki.ru
+2013-11-15 11:37:26,football.kulichki.ru
+2013-11-15 11:40:32,oracle.com
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat <span class="nv">$PATH_TO_DATA</span>/3users/user0003.csv
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>timestamp,site
+2013-11-15 09:28:17,meduza.io
+2013-11-15 09:33:04,google.com
+2013-11-15 09:52:48,oracle.com
+2013-11-15 11:37:26,google.com
+2013-11-15 11:40:32,oracle.com
+2013-11-15 11:40:34,google.com
+2013-11-15 11:40:35,google.com
+2013-11-15 11:40:37,mail.google.com
+2013-11-15 11:40:40,yandex.ru
+2013-11-15 11:41:35,meduza.io
+2013-11-15 12:28:17,meduza.io
+2013-11-15 12:33:04,google.com
+2013-11-15 12:52:48,oracle.com
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_data_toy</span><span class="p">,</span> <span class="n">site_freq_3users</span> <span class="o">=</span> <span class="n">prepare_train_set</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;3users&#39;</span><span class="p">),</span> 
+                                                     <span class="n">session_length</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+
+ 
+ 
+<div id="d3e5bc2a-f707-4e30-aeee-c7732c169d7c"></div>
+<div class="output_subarea output_widget_view ">
+<script type="text/javascript">
+var element = $('#d3e5bc2a-f707-4e30-aeee-c7732c169d7c');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "7e522885ec6f462eaf302edb7a04c502"}
+</script>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_data_toy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site1</th>
+      <th>site2</th>
+      <th>site3</th>
+      <th>site4</th>
+      <th>site5</th>
+      <th>site6</th>
+      <th>site7</th>
+      <th>site8</th>
+      <th>site9</th>
+      <th>site10</th>
+      <th>user_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>10</td>
+      <td>2</td>
+      <td>1</td>
+      <td>7</td>
+      <td>5</td>
+      <td>8</td>
+      <td>9</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2</td>
+      <td>6</td>
+      <td>6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>11</td>
+      <td>4</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Частоты сайтов (второй элемент кортежа) точно должны быть такими, нумерация может быть любой (первые элементы кортежей могут отличаться).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">site_freq_3users</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;accounts.google.com&#39;: (7, 1),
+ &#39;apis.google.com&#39;: (8, 1),
+ &#39;football.kulichki.ru&#39;: (6, 2),
+ &#39;geo.mozilla.org&#39;: (10, 1),
+ &#39;google.com&#39;: (1, 9),
+ &#39;mail.google.com&#39;: (5, 2),
+ &#39;meduza.io&#39;: (4, 3),
+ &#39;oracle.com&#39;: (2, 8),
+ &#39;plus.google.com&#39;: (9, 1),
+ &#39;vk.com&#39;: (3, 3),
+ &#39;yandex.ru&#39;: (11, 1)}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Примените полученную функцию к данным по 10 пользователям.</p>
+<p><strong><font color='red'> Вопрос 1. </font> Сколько уникальных сессий из 10 сайтов в выборке с 10 пользователями?</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_data_10users</span><span class="p">,</span> <span class="n">site_freq_10users</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><font color='red'> Вопрос 2. </font> Сколько всего уникальных сайтов в выборке из 10 пользователей? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Примените полученную функцию к данным по 150 пользователям.</p>
+<p><strong><font color='red'> Вопрос 3. </font> Сколько уникальных сессий из 10 сайтов в выборке с 150 пользователями?</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%time</span>
+<span class="n">train_data_150users</span><span class="p">,</span> <span class="n">site_freq_150users</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><font color='red'> Вопрос 4. </font> Сколько всего уникальных сайтов в выборке из 150 пользователей? </strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><font color='red'> Вопрос 5. </font> Какой из этих сайтов НЕ входит в топ-10 самых популярных сайтов среди посещенных 150 пользователями?</strong></p>
+<ul>
+<li>www.google.fr</li>
+<li>www.youtube.com</li>
+<li>safebrowsing-cache.google.com</li>
+<li>www.linkedin.com</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Для дальнейшего анализа запишем полученные объекты DataFrame в csv-файлы.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_data_10users</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> 
+                                       <span class="s1">&#39;train_data_10users.csv&#39;</span><span class="p">),</span> 
+                        <span class="n">index_label</span><span class="o">=</span><span class="s1">&#39;session_id&#39;</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">train_data_150users</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> 
+                                        <span class="s1">&#39;train_data_150users.csv&#39;</span><span class="p">),</span> 
+                         <span class="n">index_label</span><span class="o">=</span><span class="s1">&#39;session_id&#39;</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1063;&#1072;&#1089;&#1090;&#1100;-2.-&#1056;&#1072;&#1073;&#1086;&#1090;&#1072;-&#1089;-&#1088;&#1072;&#1079;&#1088;&#1077;&#1078;&#1077;&#1085;&#1085;&#1099;&#1084;-&#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1086;&#1084;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1093;">&#1063;&#1072;&#1089;&#1090;&#1100; 2. &#1056;&#1072;&#1073;&#1086;&#1090;&#1072; &#1089; &#1088;&#1072;&#1079;&#1088;&#1077;&#1078;&#1077;&#1085;&#1085;&#1099;&#1084; &#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1086;&#1084; &#1076;&#1072;&#1085;&#1085;&#1099;&#1093;<a class="anchor-link" href="#&#1063;&#1072;&#1089;&#1090;&#1100;-2.-&#1056;&#1072;&#1073;&#1086;&#1090;&#1072;-&#1089;-&#1088;&#1072;&#1079;&#1088;&#1077;&#1078;&#1077;&#1085;&#1085;&#1099;&#1084;-&#1092;&#1086;&#1088;&#1084;&#1072;&#1090;&#1086;&#1084;-&#1076;&#1072;&#1085;&#1085;&#1099;&#1093;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Если так подумать, то полученные признаки <em>site1</em>, ..., <em>site10</em> смысла не имеют как признаки в задаче классификации. А вот если воспользоваться идеей мешка слов из анализа текстов – это другое дело. Создадим новые матрицы, в которых строкам будут соответствовать сессии из 10 сайтов, а столбцам – индексы сайтов. На пересечении строки $i$ и столбца $j$ будет стоять число $n_{ij}$ – cколько раз сайт $j$ встретился в сессии номер $i$. Делать это будем с помощью разреженных матриц Scipy – <a href="https://docs.scipy.org/doc/scipy-0.18.1/reference/generated/scipy.sparse.csr_matrix.html">csr_matrix</a>. Прочитайте документацию, разберитесь, как использовать разреженные матрицы и создайте такие матрицы для наших данных. Сначала проверьте на игрушечном примере, затем примените для 10 и 150 пользователей.</p>
+<p>Обратите внимание, что в коротких сессиях, меньше 10 сайтов, у нас остались нули, так что первый признак (сколько раз попался 0) по смыслу отличен от остальных (сколько раз попался сайт с индексом $i$). Поэтому первый столбец разреженной матрицы надо будет удалить.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_toy</span><span class="p">,</span> <span class="n">y_toy</span> <span class="o">=</span> <span class="n">train_data_toy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">train_data_toy</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_toy</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[ 3,  2,  2, 10,  2,  1,  7,  5,  8,  9],
+       [ 3,  1,  1,  1,  0,  0,  0,  0,  0,  0],
+       [ 3,  2,  6,  6,  2,  0,  0,  0,  0,  0],
+       [ 4,  1,  2,  1,  2,  1,  1,  5, 11,  4],
+       [ 4,  1,  2,  0,  0,  0,  0,  0,  0,  0]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_sparse_toy</span> <span class="o">=</span> <span class="n">csr_matrix</span> <span class="s1">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>   
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Размерность разреженной матрицы должна получиться равной 11, поскольку в игрушечном примере 3 пользователя посетили 11 уникальных сайтов.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_sparse_toy</span><span class="o">.</span><span class="n">todense</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[21]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>matrix([[1, 3, 1, 0, 1, 0, 1, 1, 1, 1, 0],
+        [3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 2, 1, 0, 0, 2, 0, 0, 0, 0, 0],
+        [4, 2, 0, 2, 1, 0, 0, 0, 0, 0, 1],
+        [1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_10users</span><span class="p">,</span> <span class="n">y_10users</span> <span class="o">=</span> <span class="n">train_data_10users</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> \
+                       <span class="n">train_data_10users</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_150users</span><span class="p">,</span> <span class="n">y_150users</span> <span class="o">=</span> <span class="n">train_data_150users</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> \
+                         <span class="n">train_data_150users</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_sparse_10users</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+<span class="n">X_sparse_150users</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39; ВАШ КОД ЗДЕСЬ &#39;&#39;&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Сохраним эти разреженные матрицы с помощью <a href="https://docs.python.org/2/library/pickle.html">pickle</a> (сериализация в Python), также сохраним вектора <em>y_10users, y_150users</em> – целевые значения (id пользователя)  в выборках из 10 и 150 пользователей. То что названия этих матриц начинаются с X и y, намекает на то, что на этих данных мы будем проверять первые модели классификации.
+Наконец, сохраним также и частотные словари сайтов для 3, 10 и 150 пользователей.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;X_sparse_10users.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">X10_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">X_sparse_10users</span><span class="p">,</span> <span class="n">X10_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;y_10users.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">y10_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">y_10users</span><span class="p">,</span> <span class="n">y10_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;X_sparse_150users.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">X150_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">X_sparse_150users</span><span class="p">,</span> <span class="n">X150_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;y_150users.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">y150_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">y_150users</span><span class="p">,</span> <span class="n">y150_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;site_freq_3users.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">site_freq_3users_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">site_freq_3users</span><span class="p">,</span> <span class="n">site_freq_3users_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;site_freq_10users.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">site_freq_10users_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">site_freq_10users</span><span class="p">,</span> <span class="n">site_freq_10users_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">PATH_TO_DATA</span><span class="p">,</span> <span class="s1">&#39;site_freq_150users.pkl&#39;</span><span class="p">),</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">site_freq_150users_pkl</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">site_freq_150users</span><span class="p">,</span> <span class="n">site_freq_150users_pkl</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Чисто для подстраховки проверим, что число столбцов в разреженных матрицах <code>X_sparse_10users</code> и <code>X_sparse_150users</code> равно ранее посчитанным числам уникальных сайтов для 10 и 150 пользователей соответственно.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">X_sparse_10users</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">site_freq_10users</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">assert</span> <span class="n">X_sparse_150users</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">site_freq_150users</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#1055;&#1091;&#1090;&#1080;-&#1091;&#1083;&#1091;&#1095;&#1096;&#1077;&#1085;&#1080;&#1103;">&#1055;&#1091;&#1090;&#1080; &#1091;&#1083;&#1091;&#1095;&#1096;&#1077;&#1085;&#1080;&#1103;<a class="anchor-link" href="#&#1055;&#1091;&#1090;&#1080;-&#1091;&#1083;&#1091;&#1095;&#1096;&#1077;&#1085;&#1080;&#1103;">&#182;</a></h2><ul>
+<li>можно обработать исходные данные по 3000 пользователей; обучать на такой выборке модели лучше при наличии доступа к хорошим мощностям (можно арендовать инстанс Amazon EC2, как именно, описано <a href="https://habrahabr.ru/post/280562/">тут</a>). Хотя далее в курсе мы познакомимся с алгоритмами, способными обучаться на больших выборках при малых вычислительных потребностях;</li>
+<li>помимо явного создания разреженного формата можно еще составить выборки с помощью <code>CountVectorizer</code>, <code>TfidfVectorizer</code> и т.п. Поскольку данные по сути могут быть описаны как последовательности, то можно вычислять n-граммы сайтов. Работает все это или нет, мы будем проверять в <a href="https://inclass.kaggle.com/c/catch-me-if-you-can-intruder-detection-through-webpage-session-tracking2">соревновании</a> Kaggle Inclass (желающие могут начать уже сейчас).</li>
+</ul>
+<p>На следующей неделе мы еще немного поготовим данные и потестируем первые гипотезы, связанные с нашими наблюдениями.</p>
+
+</div>
+</div>
+</div>
+ 
+
+
+    </div>
+  </div>
+
+  </div>
+
+
+  
+    <footer class="footer hidden-print">
+      <div class="container">
+        <div class="col-md-4">
+          <p>
+            This website does not host notebooks, it only renders notebooks
+            available on other websites.
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          <p>
+            Delivered by <a href="http://www.fastly.com/">Fastly</a>,
+            Rendered by <a href="https://developer.rackspace.com/?nbviewer=awesome">Rackspace</a>
+          </p>
+          <p>
+            nbviewer GitHub <a href="https://github.com/jupyter/nbviewer">repository</a>.
+          </p>
+        </div>
+
+        <div class="col-md-4">
+          
+  
+            
+              <p>
+                nbviewer version:
+                <a href="https://github.com/jupyter/nbviewer/commit/f69705373d1402afd924a77712e7c63659e2b57f">
+                  f697053
+                </a>
+              </p>
+            
+          
+  
+  <p>
+    nbconvert version: <a href="https://github.com/jupyter/nbconvert/releases/tag/5.4.1">
+      5.4.1
+    </a>
+  </p>
+  
+
+          
+  
+  
+  <p>
+    Rendered
+    <span class='date' data-date='Sun, 26 May 2019 12:55:17 UTC' title='Sun, 26 May 2019 12:55:17 UTC'>(Sun, 26 May 2019 12:55:17 UTC)</span>
+  </p>
+  
+
+        </div>
+      </div>
+    </footer>
+  
+
+  <script src="/static/components/bootstrap/js/bootstrap.min.js?v=5869c96cc8f19086aee625d670d741f9"></script>
+  <script src="/static/components/headroom.js/dist/headroom.min.js?v=b0a311ea668f8e768ea375f4a7abb81c"></script>
+  <script src="/static/components/headroom.js/dist/jQuery.headroom.min.js?v=f3a1bae118315d0c234afc74dc6aab71"></script>
+
+  
+  
+  <script>
+    $(function(){ $("#menubar").headroom({
+      tolerance: 5,
+      offset: 205,
+      classes: {
+        initial: "animated",
+        pinned: "slideInDown",
+        unpinned: "slideOutUp"
+      }
+    })});
+  </script>
+
+
+  
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-52617120-5', 'auto',
+       {'storage': 'none'});
+    ga('set', 'anonymizeIp', true);
+    ga('send', 'pageview');
+  </script>
+  
+  <script>
+    require({
+        paths: {
+          moment: "/static/components/moment/min/moment.min.js?v=89f87298ad94aa1e6b92f42eb66da043"
+        }
+      }, ["moment"], function(moment){
+      var date = $("footer .date"),
+        m = moment(new Date(date.data('date'))),
+        update = function(){ date.text(m.fromNow()); };
+      setInterval(update, 61*1000);
+      update();
+      var w = $(window).scroll(function(event){
+        $("body").toggleClass("scrolled", w.scrollTop() > 0);
+      });
+    });
+  </script>
+
+  <!--NEW RELIC Stop Perf Measurement-->
+  
+  <!--NEW RELIC End-->
+</body>
+</html>
